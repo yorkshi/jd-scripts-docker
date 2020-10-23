@@ -4,7 +4,7 @@ sudo apt install -y git docker docker.io docker-compose
 ```
 ### 下载
 ```sh
-git close https://github.com/chinnkarahoi/jd-scripts-docker
+git clone https://github.com/chinnkarahoi/jd-scripts-docker
 cd jd-scripts-docker
 ```
 ## 获取cookie
