@@ -27,7 +27,7 @@ docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts
 ```
 
 ### 更多配置
-配置./env/all文件, 具体参数的含义可以参考[Secrets全集合](https://github.com/lxk0301/scripts/blob/master/githubAction.md)
+比如微信推送，各种活动控制，需要配置/env/all文件, 具体参数的含义可以参考[Secrets全集合](https://github.com/lxk0301/scripts/blob/master/githubAction.md)
 
 ### 多账号
 使用多容器的方式，好处：
