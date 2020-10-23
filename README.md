@@ -11,7 +11,7 @@ git clone https://github.com/chinnkarahoi/jd-scripts-docker
 cd jd-scripts-docker
 ```
 ## 获取cookie
-访问 https://m.jd.com 手机号登录获取cookie中的pt_key, pt_pin填入项目目录下的./env/env1文件,  
+访问 https://plogin.m.jd.com/login/login 手机号登录获取cookie中的pt_key, pt_pin填入项目目录下的./env/env1文件,  
 详细的获取方法可以看
 [浏览器获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie.md)或者
 [插件获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie2.md)
