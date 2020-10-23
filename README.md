@@ -15,7 +15,7 @@ cd jd-scripts-docker
 [插件获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie2.md)
 ### 启动
 ```sh
-docker-compose up --force-recreate --detach jd1
+docker-compose up --build --force-recreate --detach jd1
 ```
 ### 测试正确性
 签到测试
@@ -39,7 +39,7 @@ docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts
 超过三个账号需要手动创建./env/env4，修改./docker-compose.yml文件
 #### 配置文件说明
 所有账号共享的参数需要配置./env/all, 每个账号独立参数需要配置./env/env*，  
-账号配置的参数会覆盖共享参数，账号没参数的继承共参数享的
+每个账号配置的参数会覆盖共享参数，每个账号未配置参数的继承共享的参数
 
 ### 其他
 - 查看log
