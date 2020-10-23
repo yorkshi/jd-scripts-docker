@@ -1,4 +1,5 @@
 ### 安装依赖
+ubuntu/debian
 ```sh
 sudo apt install -y git docker docker.io docker-compose
 ```
