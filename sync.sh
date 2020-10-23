@@ -10,7 +10,7 @@ cd /scripts && git checkout . && git pull
 npm install || npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
 cd /jd-scripts-docker && git checkout . && git pull
 cp /crontab.list /crontab.list.old
-echo '55 */1 * * * bash /jd-scripts-docker/sync.sh >&/proc/1/fd/2' > /crontab.list
+echo '55 */2 * * * bash /jd-scripts-docker/sync.sh >&/proc/1/fd/2' > /crontab.list
 count=0
 for file in $(find /scripts/.github/workflows -type f);do
   cat $file | grep -q 'cron:' && {

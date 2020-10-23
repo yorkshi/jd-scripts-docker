@@ -6,7 +6,7 @@ x-logger: &logger
       max-size: "10m"
       max-file: "3"
 x-common: &common
-  image: jd:latest
+  image: jd-scripts:latest
   build:
     context: .
     dockerfile: ./Dockerfile
@@ -30,9 +30,3 @@ services:
     volumes:
       - ./env/all:/all
       - ./env/env3:/env
-  jd4:
-    <<: [ *logger, *common ]
-    container_name: jd4
-    volumes:
-      - ./env/all:/all
-      - ./env/env4:/env
