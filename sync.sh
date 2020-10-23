@@ -1,9 +1,9 @@
 #!/bin/bash
+cd /jd-scripts-docker && git checkout . && git pull
 cd /scripts && git checkout .
 git pull && grep -q 'Already up to date' || {
   npm install || npm install --registry=https://registry.npm.taobao.org
 }
-cd /jd-scripts-docker && git checkout . && git pull
 cp /crontab.list /crontab.list.old
 echo '55 */2 * * * bash /jd-scripts-docker/sync.sh >&/proc/1/fd/2' > /crontab.list
 count=0
