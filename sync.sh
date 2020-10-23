@@ -5,11 +5,9 @@ cd /scripts || exit 1
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
 cp /crontab.list /crontab.list.old
 echo '55 */2 * * * bash /jd-scripts-docker/sync.sh >&/proc/1/fd/2' > /crontab.list
-count=0
 for file in $(find /scripts/.github/workflows -type f);do
   cat $file | grep -q 'cron:' && {
     cat $file | grep -q 'node jd_.*\.js' && {
-      (( count=(count + 3) % 60 ))
       a=$(cat $file | sed -En "s/^.*cron: '(.*)'.*$/\1/p")
       b=$(cat $file | sed -En 's|^.*node (jd_.*\.js)$|node /scripts/\1|p')
       name=$(cat $file | sed -En "s|^.*name: .运行(.*)|\1|p" | sed "s/'//g")
