@@ -1,0 +1,38 @@
+version: "2.1"
+x-logger: &logger
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "3"
+x-common: &common
+  image: jd:latest
+  build:
+    context: .
+    dockerfile: ./Dockerfile
+  restart: always
+services:
+  jd1:
+    <<: [ *logger, *common ]
+    container_name: jd1
+    volumes:
+      - ./env/all:/all
+      - ./env/env1:/env
+  jd2:
+    <<: [ *logger, *common ]
+    container_name: jd2
+    volumes:
+      - ./env/all:/all
+      - ./env/env2:/env
+  jd3:
+    <<: [ *logger, *common ]
+    container_name: jd3
+    volumes:
+      - ./env/all:/all
+      - ./env/env3:/env
+  jd4:
+    <<: [ *logger, *common ]
+    container_name: jd4
+    volumes:
+      - ./env/all:/all
+      - ./env/env4:/env

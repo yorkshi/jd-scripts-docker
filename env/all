@@ -1,0 +1,26 @@
+#!/bin/bash
+# https://github.com/lxk0301/scripts/blob/master/githubAction.md
+PUSH_KEY=
+BARK_PUSH=
+BARK_SOUND=
+TG_BOT_TOKEN=
+TG_USER_ID=
+DD_BOT_TOKEN=
+DD_BOT_SECRET=
+
+PET_NOTIFY_CONTROL=true
+FRUIT_NOTIFY_CONTROL=true
+jdJoyRewardNotify=false
+jdSuperMarketRewardNotify=false
+JOY_FEED_COUNT=20
+joyRunFlag=true
+MARKET_COIN_TO_BEANS=20
+jdSuperMarketUpgrade=true
+jdBusinessCircleJump=true
+jdSuperMarketLottery=false
+jdFruitBeanCard=true
+
+FruitShareCodes=
+PetShareCodes=
+PLANT_BEAN_SHARECODES=
+SuperMarketShareCodes=
