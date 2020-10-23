@@ -18,7 +18,7 @@ for file in $(find /scripts/.github/workflows -type f);do
         set -o allexport;
         source /all;
         source /env;
-        source /jd-scripts-docker/shared_code.sh;
+        source /jd-scripts-docker/share.sh;
         cd /scripts;
         $b | sed 's/^/$name/';
       \""
