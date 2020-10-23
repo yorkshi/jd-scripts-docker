@@ -19,26 +19,33 @@ docker-compose up --force-recreate --detach jd1
 ### 测试正确性
 签到测试
 ```sh
-docker exec -t jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; node jd_bean_sign.js'
+docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; node jd_bean_sign.js'
 ```
 或者手动运行所有脚本
 ```sh
-docker exec -t jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; ls jd_*.js | xargs -i node {}'
-```
-### 查看log
-```sh
-docker-compose logs -f jd1
+docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; ls jd_*.js | xargs -i node {}'
 ```
 
 ### 更多配置
-配置./env/all, 具体key的含义可以参考[Secrets全集合](https://github.com/lxk0301/scripts/blob/master/githubAction.md)
+配置./env/all文件, 具体参数的含义可以参考[Secrets全集合](https://github.com/lxk0301/scripts/blob/master/githubAction.md)
 
 ### 多账号
 使用多容器的方式，好处：
 1. 脚本并行
 2. 每个账号可以有不同的配置，比如配置微信推送
-#### 多账号配置
-以上所有操作中的`1`替换成`2`, 然后重复之前所有操作。  
-所有账号共享的key需要配置./env/all, 每个账号独立的key需要配置./env/env*，  
-账号配置的key会覆盖共享的key，账号没有的key继承共享的key
+#### 配置
+添加第二个账号：以上所有操作中的`1`替换成`2`, 然后重复之前所有操作。  
+超过三个账号需要手动创建./env/env4，修改./docker-compose.yml文件
+#### 配置文件说明
+所有账号共享的参数需要配置./env/all, 每个账号独立参数需要配置./env/env*，  
+账号配置的参数会覆盖共享参数，账号没参数的继承共参数享的
 
+### 其他
+- 查看log
+```sh
+docker-compose logs
+```
+- 停止
+```sh
+docker-compose down
+```
