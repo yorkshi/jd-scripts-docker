@@ -1,6 +1,5 @@
 ## jd-scripts-docker
-[京东薅羊毛工具](https://github.com/lxk0301/scripts)的docker用法  
-自动根据github action更新定时任务，无需手动配置更新  
+docker启动京东薅羊毛工具，自动更新
 
 ### 安装依赖
 git docker docker-compose
