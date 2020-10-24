@@ -11,5 +11,5 @@ RUN apt update && apt install -y nodejs
 RUN apt update && apt install -y npm
 WORKDIR /
 COPY sync.sh /sync.sh
-RUN bash sync.sh
+RUN bash /sync.sh
 CMD crontab -l && cron -f
