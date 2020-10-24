@@ -1,6 +1,6 @@
 ## jd-scripts-docker
 [京东薅羊毛工具](https://github.com/lxk0301/scripts)的docker用法
-### 依赖
+### 安装依赖
 git docker docker-compose
 ### 下载
 ```sh
