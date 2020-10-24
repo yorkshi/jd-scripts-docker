@@ -1,4 +1,5 @@
 #!/bin/bash
+trap 'cp /jd-scripts-docker/sync.sh /sync' Exit
 git clone --depth=1 https://github.com/chinnkarahoi/jd-scripts-docker.git /jd-scripts-docker_tmp
 [ -d /jd-scripts-docker_tmp ] && {
   rm -rf /jd-scripts-docker
@@ -12,7 +13,6 @@ git clone --depth=1 https://github.com/lxk0301/scripts.git /scripts_tmp
 cd /scripts || exit 1
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
 cp /crontab.list /crontab.list.old
-cp /jd-scripts-docker/sync.sh /sync
 echo '55 */1 * * * bash /sync >&/proc/1/fd/2' > /crontab.list
 for file in $(find /scripts/.github/workflows -type f);do
   cat $file | grep -q 'cron:' && {
