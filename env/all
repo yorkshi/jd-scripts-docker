@@ -10,18 +10,19 @@ DD_BOT_SECRET=
 
 PET_NOTIFY_CONTROL=true
 FRUIT_NOTIFY_CONTROL=true
-jdJoyRewardNotify=false
-jdSuperMarketRewardNotify=false
+JD_JOY_REWARD_NOTIFY=false
+MARKET_REWARD_NOTIFY=false
 JOY_FEED_COUNT=20
-joyRunFlag=true
+JOY_RUN_FLAG=true
+JOY_HELP_FEED=false
 MARKET_COIN_TO_BEANS=20
-jdSuperMarketUpgrade=false
-jdBusinessCircleJump=true
-jdSuperMarketLottery=false
-jdFruitBeanCard=true
+SUPERMARKET_UPGRADE=false
+BUSINESS_CIRCLE_JUMP=true
+SUPERMARKET_LOTTERY=false
+FRUIT_BEAN_CARD=true
 
 # 互助码用@分割不要用&
-FruitShareCodes=
-PetShareCodes=
+FRUITSHARECODES=
+PETSHARECODES=
 PLANT_BEAN_SHARECODES=
-SuperMarketShareCodes=
+SUPERMARKET_SHARECODES=
