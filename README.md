@@ -1,10 +1,7 @@
 ## jd-scripts-docker
 [京东薅羊毛工具](https://github.com/lxk0301/scripts)的docker用法
-### 安装依赖
-ubuntu/debian
-```sh
-sudo apt install -y git docker docker.io docker-compose
-```
+### 依赖
+git docker docker-compose
 ### 下载
 ```sh
 git clone https://github.com/chinnkarahoi/jd-scripts-docker
