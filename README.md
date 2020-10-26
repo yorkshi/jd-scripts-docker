@@ -26,6 +26,7 @@ docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts
 ```sh
 docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; ls jd_*.js | xargs -i node {}'
 ```
+确认可以签到等操作后，即可每天定时执行脚本。
 
 ### 更多配置
 比如微信推送，各种活动控制，需要配置./env/all文件, 具体参数的含义可以参考[Secrets全集合](https://github.com/lxk0301/scripts/blob/master/githubAction.md)
