@@ -8,11 +8,14 @@ git docker docker-compose
 git clone https://github.com/chinnkarahoi/jd-scripts-docker
 cd jd-scripts-docker
 ```
-## 获取cookie
+### 获取cookie
 访问 https://plogin.m.jd.com/login/login 手机号登录获取cookie中的pt_key, pt_pin填入项目目录下的./env/env1文件,  
-详细的获取方法可以看
+(此方式cookie有效时长大概31天，其他登录方式比较短)。
+更详细的获取方法可以看
 [浏览器获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie.md)或者
 [插件获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie2.md)
+### 微信推送
+cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version)，获取到SCKEY后填到./env/all的PUSH_KEY。
 ### 启动
 ```sh
 docker-compose up --build --force-recreate --detach jd1
