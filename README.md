@@ -14,7 +14,7 @@ cd jd-scripts-docker
 更详细的获取方法可以看
 [浏览器获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie.md)或者
 [插件获取京东cookie教程](https://github.com/lxk0301/scripts/blob/master/backUp/GetJdCookie2.md)
-### 微信推送
+### 微信推送（可选）
 cookie失效推送[server酱的微信通知](http://sc.ftqq.com/3.version)，获取到SCKEY后填到./env/all的PUSH_KEY。
 ### 启动
 ```sh
