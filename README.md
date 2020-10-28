@@ -23,11 +23,11 @@ docker-compose up --build --force-recreate --detach jd1
 ### 测试正确性
 签到测试
 ```sh
-docker exec jd1 bash -c 'set -o allexport; source /env; cd /scripts; node jd_bean_sign.js'
+docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; node jd_bean_sign.js'
 ```
 或者手动运行所有脚本
 ```sh
-docker exec jd1 bash -c 'set -o allexport; source /env; cd /scripts; ls jd_*.js | xargs -i node {}'
+docker exec jd1 bash -c 'set -o allexport; source /all; source /env; cd /scripts; ls jd_*.js | xargs -i node {}'
 ```
 确认可以签到等操作后，即可每天定时执行脚本。
 
