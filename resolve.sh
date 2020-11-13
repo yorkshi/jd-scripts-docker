@@ -3,7 +3,7 @@
   FRUITSHARECODES="$FruitShareCodes"
 }
 [ -n "$PetShareCodes" ] && {
-  PETSHARECODES="$PETSHARECODES"
+  PETSHARECODES="$PetShareCodes"
 }
 [ -n "$SuperMarketShareCodes" ] && {
   SUPERMARKET_SHARECODES="$SuperMarketShareCodes"
