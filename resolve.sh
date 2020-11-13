@@ -2,10 +2,10 @@
 [ -n "$FruitShareCodes" ] && {
   FRUITSHARECODES="$FruitShareCodes"
 }
-[ -z "$PetShareCodes" ] && {
+[ -n "$PetShareCodes" ] && {
   PETSHARECODES="$PETSHARECODES"
 }
-[ -z "$SuperMarketShareCodes" ] && {
+[ -n "$SuperMarketShareCodes" ] && {
   SUPERMARKET_SHARECODES="$SuperMarketShareCodes"
 }
 [ "$FRUITSHARECODES" == "" ] && {
