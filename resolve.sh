@@ -1,5 +1,5 @@
 #!/bin/bash
-[ -z "$FruitShareCodes" ] && {
+[ -n "$FruitShareCodes" ] && {
   FRUITSHARECODES="$FruitShareCodes"
 }
 [ -z "$PetShareCodes" ] && {
