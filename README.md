@@ -31,6 +31,12 @@ docker exec jd1 bash -c 'set -o allexport; source /all; source /env; source /jd-
 ```
 确认可以签到等操作后，即可每天定时执行脚本。
 
+### 获取助力码
+请确保运行了几个小时（最好一天）之后再运行此脚本获取助力码
+```sh
+bash get-code.sh
+```
+
 ### 更多配置
 比如微信推送，各种活动控制，需要配置./env/all文件, 具体参数的含义可以参考[Secrets全集合](https://github.com/lxk0301/jd_scripts/blob/master/githubAction.md)
 
