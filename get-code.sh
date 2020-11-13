@@ -3,7 +3,7 @@ code2=
 code3=
 code4=
 for srv in $(docker-compose config --services);do
-  CMD="docker logs $srv"
+  CMD="docker logs $srv 2>/dev/null"
   line="$(eval $CMD | grep -A1 '互助码' | grep -v '^--$' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | sed 'N;s/\n/ /' | sort -u )"
   [ -z "$code1" ] || code1+=@
   [ -z "$code2" ] || code2+=@
