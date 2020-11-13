@@ -4,7 +4,7 @@ code3=
 code4=
 for srv in $(docker-compose config --services);do
   CMD="docker exec $srv bash -c 'set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; ls jd_*.js | xargs -i node {}'"
-  line="$($CMD | grep -A1 '互助码' | grep -v '^--$' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | sed 'N;s/\n/ /' | sort -u )"
+  line="$(eval $CMD | grep -A1 '互助码' | grep -v '^--$' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | sed 'N;s/\n/ /' | sort -u )"
   [ -z "$code1" ] || code1+=@
   [ -z "$code2" ] || code2+=@
   [ -z "$code3" ] || code3+=@
