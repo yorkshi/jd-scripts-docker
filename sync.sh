@@ -1,14 +1,28 @@
 #!/bin/bash
 trap 'cp /jd-scripts-docker/sync.sh /sync' Exit
-git clone --depth=1 https://github.com/chinnkarahoi/jd-scripts-docker.git /jd-scripts-docker_tmp
-[ -d /jd-scripts-docker_tmp ] && {
-  rm -rf /jd-scripts-docker
-  mv /jd-scripts-docker_tmp /jd-scripts-docker
+(
+  exec 2<>/dev/null
+  set -e
+  cd /jd-scripts-docker
+  git pull
+) || {
+  git clone https://github.com/chinnkarahoi/jd-scripts-docker.git /jd-scripts-docker_tmp
+  [ -d /jd-scripts-docker_tmp ] && {
+    rm -rf /jd-scripts-docker
+    mv /jd-scripts-docker_tmp /jd-scripts-docker
+  }
 }
-git clone --branch=master --depth=1 https://github.com/lxk0301/jd_scripts.git /scripts_tmp
-[ -d /scripts_tmp ] && {
-  rm -rf /scripts
-  mv /scripts_tmp /scripts
+(
+  exec 2<>/dev/null
+  set -e
+  cd /scripts
+  git pull
+) || {
+  git clone --branch=master https://github.com/lxk0301/jd_scripts.git /scripts_tmp
+  [ -d /scripts_tmp ] && {
+    rm -rf /scripts
+    mv /scripts_tmp /scripts
+  }
 }
 cd /scripts || exit 1
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
@@ -37,3 +51,4 @@ crontab /crontab.list || {
   crontab /crontab.list
 }
 crontab -l
+
