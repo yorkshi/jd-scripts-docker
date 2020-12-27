@@ -12,9 +12,26 @@ git clone --branch=master --depth=1 https://github.com/lxk0301/jd_scripts.git /s
 }
 cd /scripts || exit 1
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
-cp /crontab.list /crontab.list.old
-cp /jd-scripts-docker/crontab.list /crontab.list
-crontab -r
+[ -f /crontab.list ] && {
+  cp /crontab.list /crontab.list.old
+}
+cat /etc/os-release | grep -q ubuntu && {
+  cp /jd-scripts-docker/crontab.list /crontab.list
+  crontab -r
+} || {
+  cat /scripts/docker/crontab_list.sh | grep 'node' | sed 's/>>.*$//' | awk '
+  BEGIN{
+    print("* * * * * bash /jd-scripts-docker/cron_wrapper bash /sync")
+  }
+  {
+    for(i=1;i<=5;i++)printf("%s ",$i);
+    printf("bash /jd-scripts-docker/cron_wrapper \"");
+    for(i=6;i<=NF;i++)printf(" %s", $i);
+    print "\"";
+  }
+  ' > /crontab.list
+}
+
 crontab /crontab.list || {
   cp /crontab.list.old /crontab.list
   crontab /crontab.list

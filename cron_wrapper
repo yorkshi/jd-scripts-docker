@@ -1,0 +1,14 @@
+#!/bin/bash
+exec 1<>/proc/1/fd/1
+exec 2<>/proc/1/fd/2
+set -o allexport
+source /all
+source /env
+source /jd-scripts-docker/resolve.sh
+cd /scripts || {
+  echo [error]: no scripts
+  exit 1
+}
+cmd='bash -c'
+log=$(echo "$*" | grep -o '[^/]*.js')
+$cmd "$(printf '%q ' "$@")" | sed "s/^/[$log]: /g"
