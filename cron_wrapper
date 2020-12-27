@@ -10,5 +10,5 @@ cd /scripts || {
   exit 1
 }
 cmd='bash -c'
-log=$(echo "$*" | grep -o '[^/]*.js')
-$cmd $* | sed "s/^/[$log]: /g"
+log=$(echo "$*" | grep -o '[^ /]*.js')
+$cmd "$*" | sed "s/^/[$log]: /g"

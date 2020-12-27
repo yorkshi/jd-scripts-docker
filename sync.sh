@@ -35,7 +35,7 @@ cat /etc/os-release | grep -q ubuntu && {
 } || {
   cat /scripts/docker/crontab_list.sh | grep 'node' | sed 's/>>.*$//' | awk '
   BEGIN{
-    print("* * * * * bash /jd-scripts-docker/cron_wrapper bash /sync")
+    print("55 */3 * * *  bash /jd-scripts-docker/cron_wrapper bash /sync")
   }
   {
     for(i=1;i<=5;i++)printf("%s ",$i);
@@ -51,4 +51,5 @@ crontab /crontab.list || {
   crontab /crontab.list
 }
 crontab -l
+
 
