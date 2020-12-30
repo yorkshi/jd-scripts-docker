@@ -1,20 +1,22 @@
-code1=
-code2=
-code3=
-code4=
-for srv in $(docker-compose config --services);do
-  CMD="docker logs $srv 2>/dev/null"
-  line="$(eval $CMD | grep -A1 '互助码' | grep -v '^--$' | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | sed 'N;s/\n/ /' | sort -u )"
-  [ -z "$code1" ] || code1+=@
-  [ -z "$code2" ] || code2+=@
-  [ -z "$code3" ] || code3+=@
-  [ -z "$code4" ] || code4+=@
-  code1+=$(echo "$line" | grep "东东农场" | head -n 1 | grep -Eo '[a-zA-Z0-9_=+/]{15,}')
-  code2+=$(echo "$line" | grep "东东萌宠" | head -n 1 | grep -Eo '[a-zA-Z0-9_=+/]{15,}')
-  code3+=$(echo "$line" | grep "种豆得豆" | head -n 1 | grep -Eo '[a-zA-Z0-9_=+/]{15,}')
-  code4+=$(echo "$line" | grep "京小超" | head -n 1 | grep -Eo '[a-zA-Z0-9_=+/]{15,}')
+f(){
+  a=${!1}
+  a=${a/@/}
+  echo $1=$a
+}
+for srv in jd1 jd2 jd3;do
+  line="$(docker logs $srv | grep 京东账号 | grep 互助码 | sort -u)"
+  FRUITSHARECODES+=@$(echo "$line" | grep jd_fruit.js | grep -Eo '[^】 ]*$')
+  PETSHARECODES+=@$(echo "$line" | grep jd_pet.js | grep -Eo '[^】 ]*$')
+  PLANT_BEAN_SHARECODES+=@$(echo "$line" | grep jd_plantBean.js | grep -Eo '[^】 ]*$')
+  DDFACTORY_SHARECODES+=@$(echo "$line" | grep jd_jdfactory.js | grep -Eo '[^】 ]*$')
+  DREAM_FACTORY_SHARE_CODES+=@$(echo "$line" | grep jd_dreamFactory.js | grep -Eo '[^】 ]*$')
+  JDZZ_SHARECODES+=@$(echo "$line" | grep jd_jdzz.js | grep -Eo '[^】 ]*$')
+  JDJOY_SHARECODES+=@$(echo "$line" | grep jd_crazy_joy.js | grep -Eo '[^】 ]*$')
 done
-echo FRUITSHARECODES=$code1
-echo PETSHARECODES=$code2
-echo PLANT_BEAN_SHARECODES=$code3
-echo SUPERMARKET_SHARECODES=$code4
+f FRUITSHARECODES
+f PETSHARECODES
+f PLANT_BEAN_SHARECODES
+f DDFACTORY_SHARECODES
+f DREAM_FACTORY_SHARE_CODES
+f JDZZ_SHARECODES
+f JDJOY_SHARECODES
