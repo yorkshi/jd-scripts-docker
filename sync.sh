@@ -18,7 +18,7 @@ trap 'cp /jd-scripts-docker/sync.sh /sync' Exit
   cd /scripts
   git pull
 ) || {
-  git clone --branch=master https://github.com/lxk0301/jd_scripts.git /scripts_tmp
+  git clone --branch=master https://gitee.com/lxk0301/jd_scripts.git /scripts_tmp
   [ -d /scripts_tmp ] && {
     rm -rf /scripts
     mv /scripts_tmp /scripts
