@@ -1,17 +1,18 @@
 f(){
   a=${!1}
   a=${a/@/}
-  echo $1=$a
+  echo $1="\${$1:-$a}"
 }
-for srv in jd1 jd2 jd3;do
-  line="$(docker logs $srv | grep 京东账号 | grep 互助码 | sort -u)"
-  FRUITSHARECODES+=@$(echo "$line" | grep jd_fruit.js | grep -Eo '[^】 ]*$')
-  PETSHARECODES+=@$(echo "$line" | grep jd_pet.js | grep -Eo '[^】 ]*$')
-  PLANT_BEAN_SHARECODES+=@$(echo "$line" | grep jd_plantBean.js | grep -Eo '[^】 ]*$')
-  DDFACTORY_SHARECODES+=@$(echo "$line" | grep jd_jdfactory.js | grep -Eo '[^】 ]*$')
-  DREAM_FACTORY_SHARE_CODES+=@$(echo "$line" | grep jd_dreamFactory.js | grep -Eo '[^】 ]*$')
-  JDZZ_SHARECODES+=@$(echo "$line" | grep jd_jdzz.js | grep -Eo '[^】 ]*$')
-  JDJOY_SHARECODES+=@$(echo "$line" | grep jd_crazy_joy.js | grep -Eo '[^】 ]*$')
+for srv in $(docker-compose config --services);do
+  line="$(docker exec $srv bash -c 'set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node jd_get_share_code.js')"
+  FRUITSHARECODES+=@$(echo "$line" | grep 东农场 | grep -Eo '[^】 ]*$')
+  PETSHARECODES+=@$(echo "$line" | grep 东萌宠 | grep -Eo '[^】 ]*$')
+  PLANT_BEAN_SHARECODES+=@$(echo "$line" | grep 种豆得豆 | grep -Eo '[^】 ]*$')
+  DDFACTORY_SHARECODES+=@$(echo "$line" | grep 东工厂 | grep -Eo '[^】 ]*$')
+  DREAM_FACTORY_SHARE_CODES+=@$(echo "$line" | grep 喜工厂 | grep -Eo '[^】 ]*$')
+  JDZZ_SHARECODES+=@$(echo "$line" | grep 赚赚 | grep -Eo '[^】 ]*$')
+  JXNC_SHARECODES+=@$(echo "$line" | grep 喜农场助力码 | grep -Eo '[^】 ]*$')
+  JDJOY_SHARECODES+=@$(echo "$line" | grep -i joy | grep -Eo '[^】 ]*$')
 done
 f FRUITSHARECODES
 f PETSHARECODES
@@ -19,4 +20,6 @@ f PLANT_BEAN_SHARECODES
 f DDFACTORY_SHARECODES
 f DREAM_FACTORY_SHARE_CODES
 f JDZZ_SHARECODES
+f JXNC_SHARECODES
 f JDJOY_SHARECODES
+f JDNIAN_SHARECODES
