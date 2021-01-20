@@ -37,6 +37,9 @@ docker exec jd1 bash -c 'set -o allexport; source /all; source /env; source /jd-
 bash get-code.sh
 ```
 
+### 自定义定时任务
+修改./custom.list文件
+
 ### 更多配置
 比如微信推送，各种活动控制，需要配置./env/all文件, 具体参数的含义可以参考[Secrets全集合](https://gitee.com/lxk0301/jd_scripts/blob/master/githubAction.md)
 
