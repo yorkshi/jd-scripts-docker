@@ -8,6 +8,7 @@ RUN date
 
 WORKDIR /
 COPY sync.sh /sync.sh
+COPY custom.list /custom.list
 RUN bash /sync.sh
 COPY ./cron_wrapper /jd-scripts-docker/cron_wrapper
 CMD crontab -l && crond -f

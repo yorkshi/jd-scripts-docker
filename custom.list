@@ -1,0 +1,1 @@
+50 * * * * bash /jd-scripts-docker/cron_wrapper "node /scripts/jd_dreamFactory.js"

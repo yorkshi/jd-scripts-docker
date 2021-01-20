@@ -44,6 +44,7 @@ cat /etc/os-release | grep -q ubuntu && {
     print "\"";
   }
   ' > /crontab.list
+  cat /custom.list >> /crontab.list
 }
 
 crontab /crontab.list || {

@@ -16,17 +16,20 @@ services:
     <<: [ *logger, *common ]
     container_name: jd1
     volumes:
-      - ./env/all:/all
-      - ./env/env1:/env
+    - ./env/all:/all
+    - ./env/env1:/env
+    - ./custom.list:/custom.list
   jd2:
     <<: [ *logger, *common ]
     container_name: jd2
     volumes:
-      - ./env/all:/all
-      - ./env/env2:/env
+    - ./env/all:/all
+    - ./env/env2:/env
+    - ./custom.list:/custom.list
   jd3:
     <<: [ *logger, *common ]
     container_name: jd3
     volumes:
-      - ./env/all:/all
-      - ./env/env3:/env
+    - ./env/all:/all
+    - ./env/env3:/env
+    - ./custom.list:/custom.list
