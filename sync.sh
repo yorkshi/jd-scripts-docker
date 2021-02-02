@@ -52,6 +52,7 @@ cat /etc/os-release | grep -q ubuntu && {
   cat /scripts/docker/crontab_list.sh | grep 'node' | sed 's/>>.*$//' | awk '
   BEGIN{
     print("55 */3 * * *  bash /jd-scripts-docker/cron_wrapper bash /sync")
+    print("33 */5 * * * bash /jd-scripts-docker/cron_wrapper node /scripts/jd_newYearMoney.js")
   }
   {
     for(i=1;i<=5;i++)printf("%s ",$i);
