@@ -36,5 +36,5 @@
 10 2,3 * * * bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_joy_run.js | sed 's/^/ 【宠汪汪邀请助力】/'; "
 13 3,6 * * * bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_watch.js | sed 's/^/ 【京东发现】/'; "
 44 20 * * 6 bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_unbind.js | sed 's/^/ 【注销京东已开的店铺会员】/'; "
-20 8,12,15 * * bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_newYearMoney.js | sed 's/^/ 【jd_newYearMoney】/'; "
+20 8,12,15 * * * bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_newYearMoney.js | sed 's/^/ 【jd_newYearMoney】/'; "
 0 9,12,16,20 * * * bash -c " exec 1<>/proc/1/fd/1; exec 2<>/proc/1/fd/2; set -o allexport; source /all; source /env; source /jd-scripts-docker/resolve.sh; cd /scripts; node /scripts/jd_newYearMoney_lottery.js | sed 's/^/ 【jd_newYearMoney_lottery】/'; "
