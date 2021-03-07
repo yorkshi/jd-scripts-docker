@@ -40,7 +40,6 @@ trap 'cp /jd-scripts-docker/sync.sh /sync' Exit
   }
 }
 cd /scripts || exit 1
-cp /loon/*.js /scripts
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
 [ -f /crontab.list ] && {
   cp /crontab.list /crontab.list.old
