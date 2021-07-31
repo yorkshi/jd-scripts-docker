@@ -39,7 +39,22 @@ trap 'cp /jd-scripts-docker/sync.sh /sync' Exit
     mv /loon_tmp /loon
   }
 }
+(
+  exec 2<>/dev/null
+  set -e
+  cd /JD
+  git checkout .
+  git pull
+) || {
+  git clone --branch=main https://github.com/zero205/JD_tencent_scf.git /JD_tmp
+  [ -d /JD_tmp ] && {
+    rm -rf /JD
+    mv /JD_tmp /JD
+  }
+}
 cd /scripts || exit 1
+cp /loon/*.js /scripts
+cp /JD/*.js /scripts
 npm install || npm install --registry=https://registry.npm.taobao.org || exit 1
 [ -f /crontab.list ] && {
   cp /crontab.list /crontab.list.old
@@ -50,8 +65,7 @@ cat /etc/os-release | grep -q ubuntu && {
 } || {
   cat /scripts/docker/crontab_list.sh | grep 'node' | sed 's/>>.*$//' | awk '
   BEGIN{
-    print("55 */3 * * *  bash /jd-scripts-docker/cron_wrapper bash /sync")
-    print("33 */5 * * * bash /jd-scripts-docker/cron_wrapper node /scripts/jd_newYearMoney.js")
+    print("55 */1 * * *  bash /jd-scripts-docker/cron_wrapper bash /sync")
   }
   {
     for(i=1;i<=5;i++)printf("%s ",$i);
